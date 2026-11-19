@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LARPING IS KEY — Enter the Realm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#100f18;--panel:#1b1927;--panel2:#242033;--ink:#fff9f0;--muted:#c2b9c9;--gold:#e5bd72;--pink:#ed9dbb;--purple:#a78bfa;--line:rgba(255,255,255,.13);--green:#9bd6b0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}img{display:block;max-width:100%;object-fit:cover}
+header{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:15px 6%;background:rgba(16,15,24,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.logo{font-family:Cinzel,serif;font-weight:800;letter-spacing:2px;color:var(--gold);font-size:18px}.logo span{color:var(--ink)}
+nav{display:flex;gap:22px;align-items:center}nav a{font-size:12px;color:var(--muted);font-weight:700}nav a:hover{color:var(--gold)}
+.menu{display:none;background:none;border:0;color:white;font-size:25px}
+.btn{border:0;border-radius:999px;padding:13px 20px;background:linear-gradient(110deg,var(--gold),#f0d9a8);color:#21192b;font-weight:800;font-size:12px;letter-spacing:.3px;transition:.2s}.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.secondary{background:transparent;border:1px solid var(--gold);color:var(--gold)}.btn.pink{background:linear-gradient(110deg,var(--pink),#f7c4d8);color:#281725}
+.hero{min-height:650px;display:flex;align-items:center;padding:90px 8%;background:linear-gradient(90deg,rgba(12,10,19,.92),rgba(12,10,19,.48),rgba(12,10,19,.12)),url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=2000&q=90") center/cover}
+.hero-copy{max-width:690px}.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:3px;font-size:11px;font-weight:800;margin-bottom:14px}
+h1,h2,h3{font-family:Cinzel,serif}h1{font-size:clamp(44px,8vw,86px);line-height:1.02;margin:0 0 20px}h1 em{font-family:"Playfair Display",serif;color:var(--pink)}.hero p{max-width:550px;color:#e6dce9;line-height:1.8;font-size:16px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
+.hero-note{margin-top:48px;color:#e6dce9;font-size:11px;letter-spacing:2px}
+.ticker{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;padding:22px 5%;background:#211b2d;border-block:1px solid var(--line);color:var(--gold);font-size:11px;letter-spacing:2px;text-transform:uppercase}
+section{padding:82px 8%}.section-head{max-width:720px;margin-bottom:32px}.section-head h2{font-size:clamp(27px,4vw,43px);margin:0 0 12px}.section-head p{color:var(--muted);line-height:1.8;margin:0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:19px}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.25s}.card:hover{transform:translateY(-6px);border-color:rgba(229,189,114,.65)}.card img{width:100%;height:220px}.card-body{padding:22px}.tag{color:var(--pink);font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:800}.card h3{font-size:19px;margin:10px 0}.card p{color:var(--muted);font-size:13px;line-height:1.7;margin:0}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:center}.split img{height:390px;width:100%;border-radius:20px}.copy p{color:var(--muted);line-height:1.9}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 18px 55px rgba(0,0,0,.18)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{display:flex;flex-direction:column;gap:7px}.field label{font-size:11px;color:var(--muted);font-weight:800;text-transform:uppercase;letter-spacing:1px}.field input,.field select,.field textarea{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:11px;background:#12111b;color:var(--ink);outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}.wide{grid-column:1/-1}
+.result{display:none;margin-top:20px;padding:22px;border-radius:15px;background:linear-gradient(135deg,#322640,#222039);border:1px solid rgba(229,189,114,.5)}.result h3{color:var(--gold);margin:0 0 8px}.result p{color:#e8dfea;line-height:1.7}
+.game-layout{display:grid;grid-template-columns:1.2fr .8fr;gap:20px}.game-box{background:linear-gradient(145deg,#282039,#191725);border:1px solid rgba(167,139,250,.35);border-radius:20px;padding:28px}.game-box h3{color:var(--gold);margin-top:0}.game-box p{color:var(--muted);line-height:1.8}.choices{display:grid;gap:10px;margin-top:20px}.choice{background:#30283e;color:var(--ink);border:1px solid var(--line);padding:14px 16px;border-radius:12px;text-align:left}.choice:hover{border-color:var(--pink);background:#3a2d49}.feedback{margin-top:18px;color:var(--green);line-height:1.7;font-weight:700}
+.challenge-card{background:linear-gradient(135deg,#38263d,#202036);border:1px solid rgba(237,157,187,.4);border-radius:20px;padding:28px}.challenge-card h3{color:var(--pink)}.challenge-card p{font-size:18px;line-height:1.7}.inline-actions{display:flex;gap:10px;flex-wrap:wrap}
+.quiz-question{font-size:19px;margin:0 0 18px}.quiz-options{display:grid;grid-template-columns:1fr 1fr;gap:10px}.quiz-answer{padding:15px;text-align:left;border:1px solid var(--line);border-radius:12px;background:#12111b;color:var(--ink)}.quiz-answer:hover{border-color:var(--gold)}.quiz-answer.correct{background:#19392e;border-color:var(--green)}.quiz-answer.wrong{background:#482735;border-color:#ed8ca8}.quiz-answer:disabled{cursor:default;opacity:1}.quiz-feedback{min-height:26px;margin:17px 0;color:var(--gold);font-weight:700}.quiz-meta{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin-bottom:14px}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.gallery img{width:100%;height:190px;border-radius:13px;cursor:pointer;transition:.2s}.gallery img:hover{transform:scale(1.025);filter:brightness(1.12)}
+.progress-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.progress-stat{background:var(--panel2);padding:18px;border-radius:15px;border:1px solid var(--line)}.progress-stat strong{display:block;font-family:Cinzel,serif;font-size:26px;color:var(--gold)}.progress-stat span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.badges{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}.badge{border:1px solid var(--line);color:#93899b;padding:10px 13px;border-radius:999px;font-size:11px}.badge.unlocked{background:rgba(229,189,114,.13);border-color:var(--gold);color:var(--gold)}
+.faq{border-bottom:1px solid var(--line);padding:17px 0}.faq summary{cursor:pointer;font-family:Cinzel,serif;font-weight:700}.faq p{color:var(--muted);line-height:1.8}
+footer{padding:55px 8%;text-align:center;background:#0b0a11;border-top:1px solid var(--line)}footer p{color:var(--muted);font-size:12px;line-height:1.8}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:50;align-items:center;justify-content:center;padding:20px}.modal img{max-height:85vh;max-width:95%;border-radius:12px}.modal button{position:absolute;right:25px;top:18px;background:none;color:white;border:0;font-size:36px}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,120px);background:#29233a;border:1px solid var(--gold);padding:13px 19px;border-radius:999px;z-index:60;transition:.3s;color:var(--ink);font-size:13px}.toast.show{transform:translate(-50%,0)}
+.small-note{font-size:11px;color:var(--muted);line-height:1.7;margin-top:15px}
+@media(max-width:850px){nav{display:none;position:absolute;top:65px;left:0;right:0;background:#171522;padding:22px;flex-direction:column;align-items:flex-start}nav.open{display:flex}.menu{display:block}.cards{grid-template-columns:1fr 1fr}.split,.game-layout{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){header{padding:14px 5%}section{padding:62px 6%}.hero{min-height:590px;padding:70px 7%}.cards,.form-grid,.quiz-options{grid-template-columns:1fr}.wide{grid-column:auto}.progress-grid{grid-template-columns:1fr 1fr}.gallery img{height:140px}.panel,.game-box{padding:21px}}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="#">LARPING <span>IS KEY</span></a>
+  <button class="menu" onclick="toggleMenu()" aria-label="Open navigation">☰</button>
+  <nav id="nav">
+    <a href="#realms" onclick="closeMenu()">Realms</a><a href="#creator" onclick="closeMenu()">Character lab</a><a href="#quest" onclick="closeMenu()">Quest</a><a href="#quiz" onclick="closeMenu()">Quiz</a><a href="#progress" onclick="closeMenu()">My progress</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">✦ Your fantasy era starts here ✦</div>
+    <h1>MAKE BELIEVE.<br><em>Make it legendary.</em></h1>
+    <p>Build your character. Choose your realm. Make decisions that change your story. Welcome to a fantasy world where imagination has no limits.</p>
+    <div class="hero-actions"><a class="btn" href="#creator">Create your character</a><a class="btn secondary" href="#quest">Start an adventure</a></div>
+    <div class="hero-note">✧ THREE REALMS · ENDLESS STORIES · YOUR RULES ✧</div>
+  </div>
+</section>
+<div class="ticker"><span>✦ Create</span><span>✦ Explore</span><span>✦ Role-play</span><span>✦ Imagine</span><span>✦ Repeat</span></div>
+
+<section id="realms">
+  <div class="section-head"><div class="eyebrow">Pick your universe</div><h2>Three realms. Which one calls you?</h2><p>Every kingdom has its own atmosphere, legends and secrets. Choose a setting for your next character or adventure.</p></div>
+  <div class="cards">
+    <article class="card"><img src="https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=900&q=85" alt="Misty green forest"><div class="card-body"><span class="tag">Nature · Mystery</span><h3>Enchanted Forest</h3><p>Ancient trees, hidden paths and magical creatures. For guardians, healers and curious explorers.</p></div></article>
+    <article class="card"><img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=85" alt="Mountain under a starry sky"><div class="card-body"><span class="tag">Magic · Secrets</span><h3>Emerald Realm</h3><p>Starry skies, forgotten spells and secret libraries. For scholars, inventors and spellcasters.</p></div></article>
+    <article class="card"><img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=85" alt="Golden light over a mountain lake"><div class="card-body"><span class="tag">Royalty · Adventure</span><h3>Golden Kingdom</h3><p>Grand halls, royal traditions and unexpected alliances. For leaders, diplomats and storytellers.</p></div></article>
+  </div>
+</section>
+
+<section>
+  <div class="split"><img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1100&q=85" alt="Fantasy-like woodland landscape"><div class="copy"><div class="eyebrow">So, what is LARP?</div><h2>Step inside the story.</h2><p>LARP means Live Action Role-Playing. People create characters and bring stories to life through acting, costumes, imagination and teamwork.</p><p>You could be a royal advisor, a travelling explorer, a forest guardian or a mysterious wizard. You decide who your character is and how their story unfolds.</p><a class="btn" href="#creator">Build your character →</a></div></div>
+</section>
+
+<section id="creator">
+  <div class="section-head"><div class="eyebrow">Character creation studio</div><h2>Your character. Your lore.</h2><p>Make someone completely original. Your character can be saved on this browser and edited whenever you like.</p></div>
+  <div class="panel">
+    <div class="form-grid">
+      <div class="field"><label for="cName">Character name *</label><input id="cName" maxlength="35" placeholder="e.g. Elara Moonvale"></div>
+      <div class="field"><label for="cTitle">Title / nickname</label><input id="cTitle" maxlength="45" placeholder="e.g. Keeper of the Stars"></div>
+      <div class="field"><label for="cRole">Character class</label><select id="cRole"><option>Royal strategist</option><option>Forest guardian</option><option>Spellcaster</option><option>Healer</option><option>Explorer</option><option>Royal messenger</option><option>Inventor</option><option>Dragon scholar</option><option>Storyteller</option></select></div>
+      <div class="field"><label for="cRealm">Home realm</label><select id="cRealm"><option>Enchanted Forest</option><option>Emerald Realm</option><option>Golden Kingdom</option></select></div>
+      <div class="field"><label for="cTrait">Main personality trait</label><input id="cTrait" maxlength="40" placeholder="e.g. Brave but chaotic"></div>
+      <div class="field"><label for="cPower">Special ability</label><input id="cPower" maxlength="50" placeholder="e.g. Can speak to ravens"></div>
+      <div class="field wide"><label for="cLore">Backstory</label><textarea id="cLore" rows="3" maxlength="350" placeholder="Where did they come from? What are they hoping to discover?"></textarea></div>
+      <div class="field wide"><button class="btn" onclick="createCharacter()">✨ Generate my character card</button></div>
+    </div>
+    <div class="result" id="characterResult" aria-live="polite"><h3 id="characterCardName"></h3><p id="characterCardText"></p><button class="btn secondary" onclick="editCharacter()">Edit character</button></div>
+  </div>
+</section>
+
+<section id="quest">
+  <div class="section-head"><div class="eyebrow">Choose-your-own-adventure</div><h2>The crown of forgotten stars</h2><p>Your choices matter. Pick a path, see what happens, and replay to discover a different ending.</p></div>
+  <div class="game-layout">
+    <div class="game-box"><div class="tag">Interactive story · Chapter <span id="chapterNo">1</span></div><h3 id="storyTitle">A letter after midnight</h3><p id="storyText">A sealed silver letter appears on your doorstep. It carries the symbol of a kingdom that vanished a century ago. Inside is a map with one place circled: the old observatory. What do you do?</p><div class="choices" id="storyChoices"></div><div class="feedback" id="storyFeedback" aria-live="polite"></div></div>
+    <div class="game-box"><div class="tag">Your adventure log</div><h3>Choices you make</h3><p id="storyLog">Your story has not started yet. Choose your first move.</p><button class="btn secondary" onclick="restartStory()">Restart adventure ↻</button><p class="small-note">This is a fictional, text-based adventure. Your ending is saved to your progress.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><div class="eyebrow">Daily creative drop</div><h2>Quest of the day</h2><p>A little creative prompt to help you build your world. Mark it complete when you've done it.</p></div>
+  <div class="challenge-card"><div class="tag" id="challengeNumber">TODAY'S PROMPT</div><h3 id="challengeTitle">Design a royal crest</h3><p id="challengeText">Create a crest using three symbols that represent your character. Give each symbol a meaning.</p><div class="inline-actions"><button class="btn pink" onclick="newChallenge()">New prompt ↻</button><button class="btn secondary" id="completeChallenge" onclick="completeChallenge()">Mark as completed ✓</button></div><p class="small-note" id="challengeStatus">Completed prompts: 0</p></div>
+</section>
+
+<section id="quiz">
+  <div class="section-head"><div class="eyebrow">Knowledge check</div><h2>The fantasy fan quiz</h2><p>Five quick questions. Pick an answer and you'll find out immediately if you got it right.</p></div>
+  <div class="panel">
+    <div class="quiz-meta"><span id="quizCounter">Question 1 of 5</span><span id="quizPoints">Score: 0</span></div>
+    <div style="height:6px;background:#373044;border-radius:99px;margin-bottom:23px;overflow:hidden"><div id="quizBar" style="height:100%;width:20%;background:linear-gradient(90deg,var(--pink),var(--gold));transition:.3s"></div></div>
+    <h3 class="quiz-question" id="quizQuestion">What does LARP stand for?</h3>
+    <div class="quiz-options" id="quizOptions"></div>
+    <div class="quiz-feedback" id="quizFeedback" aria-live="polite">Choose your answer above.</div>
+    <div class="inline-actions"><button class="btn" id="quizNext" onclick="nextQuestion()" disabled>Next question →</button><button class="btn secondary" onclick="restartQuiz()">Start again</button></div>
+    <p class="small-note" id="quizResult"></p>
+  </div>
+</section>
+
+<section>
+  <div class="section-head"><div class="eyebrow">Moodboard material</div><h2>Visual inspiration</h2><p>Explore atmospheric places to spark ideas for your own fantasy world. Tap a photo to enlarge it.</p></div>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=700&q=85" alt="Golden landscape" onclick="openImage(this)">
+    <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=700&q=85" alt="Dreamy mountain scenery" onclick="openImage(this)">
+    <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=700&q=85" alt="Sunrise over hills" onclick="openImage(this)">
+    <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=700&q=85" alt="Ocean waves" onclick="openImage(this)">
+  </div>
+</section>
+
+<section id="progress">
+  <div class="section-head"><div class="eyebrow">Your saved profile</div><h2>My progress dashboard</h2><p>Your progress saves automatically in this browser. You can also download a backup file.</p></div>
+  <div class="progress-grid">
+    <div class="progress-stat"><strong id="statBadges">0/5</strong><span>Badges unlocked</span></div>
+    <div class="progress-stat"><strong id="statChallenges">0</strong><span>Challenges completed</span></div>
+    <div class="progress-stat"><strong id="statQuiz">0/5</strong><span>Best quiz score</span></div>
+  </div>
+  <div class="badges" id="badgeList">
+    <span class="badge" data-badge="character">✦ Character creator</span><span class="badge" data-badge="story">✦ Story explorer</span><span class="badge" data-badge="quiz">✦ Quiz champion</span><span class="badge" data-badge="challenge">✦ Creative spirit</span><span class="badge" data-badge="ending">✦ Realm legend</span>
+  </div>
+  <div class="inline-actions" style="margin-top:24px"><button class="btn" onclick="downloadProgress()">Download my progress ↓</button><label class="btn secondary" for="importFile">Load saved progress ↑</label><input id="importFile" type="file" accept="application/json" style="display:none" onchange="importProgress(event)"><button class="btn secondary" onclick="resetProgress()">Reset progress</button></div>
+  <p class="small-note">Progress is stored on this device and browser. A downloaded backup can be moved to another device using “Load saved progress”. Don't use Reset unless you really want to clear your saved game.</p>
+</section>
+
+<section>
+  <div class="section-head"><div class="eyebrow">Need to know</div><h2>Quick questions</h2></div>
+  <details class="faq"><summary>Do I need experience to try LARP?</summary><p>No. You can begin with a character idea and a simple story. If you join an in-person group, check its age guidance, rules and safety arrangements first.</p></details>
+  <details class="faq"><summary>Do I need an expensive costume?</summary><p>No. A character can start with everyday clothes and a few creative details. Imagination matters more than expensive outfits.</p></details>
+  <details class="faq"><summary>Does my progress save?</summary><p>Yes. This version automatically saves your character, badges, story ending, challenge count and quiz best score in your browser. Use the backup button if you want to move it.</p></details>
+  <details class="faq"><summary>Can I play on my phone?</summary><p>Yes. The layout adapts to phones, tablets and computers. Your saved progress is separate in each browser unless you export and import a backup.</p></details>
+</section>
+</main>
+<footer><div class="logo">LARPING <span>IS KEY</span></div><p>Build a world. Tell a story. Make it yours.</p><p style="margin-top:12px">A fantasy creativity project · © 2026 LARPING IS KEY</p></footer>
+<div class="modal" id="imageModal" onclick="closeImage()"><button aria-label="Close">×</button><img id="modalImage" alt="Expanded inspiration photo"></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const STORAGE_KEY="larpingIsKey_v3";
+const freshState=()=>({character:null,badges:[],storyPath:[],ending:null,challenges:0,challengeDone:[],challengeIndex:0,quizBest:0,quizAttempts:0});
+let state=loadState();
+function loadState(){try{const x=JSON.parse(localStorage.getItem(STORAGE_KEY));return x&&typeof x==="object"?{...freshState(),...x}:freshState()}catch(e){return freshState()}}
+function saveState(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));renderProgress();return true}catch(e){toast("Browser storage is unavailable. Download a backup instead.");return false}}
+function toast(message){const t=document.getElementById("toast");t.textContent=message;t.classList.add("show");clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove("show"),2400)}
+function award(id){if(!state.badges.includes(id)){state.badges.push(id);saveState();toast("Achievement unlocked! ✦")}}
+function renderProgress(){document.getElementById("statBadges").textContent=state.badges.length+"/5";document.getElementById("statChallenges").textContent=state.challenges;document.getElementById("statQuiz").textContent=state.quizBest+"/5";document.querySelectorAll("[data-badge]").forEach(el=>el.classList.toggle("unlocked",state.badges.includes(el.dataset.badge)));document.getElementById("challengeStatus").textContent="Completed prompts: "+state.challenges;document.getElementById("completeChallenge").disabled=state.challengeDone.includes(state.challengeIndex);document.getElementById("completeChallenge").textContent=state.challengeDone.includes(state.challengeIndex)?"Completed ✓":"Mark as completed ✓"}
+function toggleMenu(){document.getElementById("nav").classList.toggle("open")}function closeMenu(){document.getElementById("nav").classList.remove("open")}
+function createCharacter(){const name=document.getElementById("cName").value.trim();if(!name){toast("Give your character a name first!");document.getElementById("cName").focus();return}state.character={name,title:document.getElementById("cTitle").value.trim(),role:document.getElementById("cRole").value,realm:document.getElementById("cRealm").value,trait:document.getElementById("cTrait").value.trim(),power:document.getElementById("cPower").value.trim(),lore:document.getElementById("cLore").value.trim()};showCharacter();award("character");saveState();toast("Your character card is ready!")}
+function showCharacter(){if(!state.character)return;const c=state.character;document.getElementById("characterCardName").textContent=c.name+(c.title?" · "+c.title:"");document.getElementById("characterCardText").textContent="Class: "+c.role+" | Realm: "+c.realm+" | Personality: "+(c.trait||"Unwritten")+" | Ability: "+(c.power||"Undiscovered")+" | Backstory: "+(c.lore||"A new legend begins…");document.getElementById("characterResult").style.display="block"}
+function editCharacter(){document.getElementById("cName").value=state.character?.name||"";document.getElementById("cTitle").value=state.character?.title||"";document.getElementById("cRole").value=state.character?.role||"Royal strategist";document.getElementById("cRealm").value=state.character?.realm||"Enchanted Forest";document.getElementById("cTrait").value=state.character?.trait||"";document.getElementById("cPower").value=state.character?.power||"";document.getElementById("cLore").value=state.character?.lore||"";document.getElementById("cName").focus()}
+const storyNodes={
+start:{chapter:1,title:"A letter after midnight",text:"A sealed silver letter appears on your doorstep. It carries the symbol of a kingdom that vanished a century ago. Inside is a map with one place circled: the old observatory. What do you do?",choices:[["Go straight to the observatory","observatory"],["Ask the palace librarian","library"],["Follow the strange glowing footprints","footprints"]]},
+observatory:{chapter:2,title:"The abandoned observatory",text:"The observatory door swings open. A tiny star-shaped light floats above a dusty telescope. It seems to be waiting for you.",choices:[["Touch the star-light","star"],["Search the telescope","telescope"]]},
+library:{chapter:2,title:"The librarian's secret",text:"The librarian recognises the symbol and reveals a hidden page. It says the lost kingdom disappeared to protect a powerful secret.",choices:[["Ask what the secret is","secret"],["Find the hidden page's map","map"]]},
+footprints:{chapter:2,title:"Into the silver woods",text:"The footprints lead into a moonlit forest. A silver fox watches from beside a stone archway.",choices:[["Follow the fox","fox"],["Enter the stone archway","arch"]]},
+star:{chapter:3,title:"A star chooses you",text:"The light turns into a tiny constellation and reveals a message: the crown is not an object, but a promise to protect the realms.",choices:[["Make the promise","promise"],["Ask the star for another clue","clue"]]},
+telescope:{chapter:3,title:"The sky map",text:"Through the telescope you see three stars connect into the shape of a crown. The observatory floor begins to glow.",choices:[["Step into the light","promise"],["Copy the star pattern","clue"]]},
+secret:{chapter:3,title:"The truth of the lost kingdom",text:"The kingdom vanished because its people chose peace over power. Their final message is hidden beneath the oldest tree.",choices:[["Travel to the oldest tree","promise"],["Record the message for the realms","clue"]]},
+map:{chapter:3,title:"The hidden map",text:"The map reveals a path to a meeting place between all three realms. Someone has left a small golden key there.",choices:[["Take the key to the meeting place","promise"],["Leave a message for the next explorer","clue"]]},
+fox:{chapter:3,title:"The fox's gift",text:"The fox drops a silver leaf at your feet. It glows whenever someone nearby needs help.",choices:[["Accept the leaf and protect the realms","promise"],["Ask the fox where it came from","clue"]]},
+arch:{chapter:3,title:"Beyond the archway",text:"You step through and find a peaceful garden beneath a sky full of unfamiliar stars.",choices:[["Promise to keep it safe","promise"],["Draw a map so others can find it","clue"]]},
+promise:{chapter:4,title:"The guardian's ending",text:"You make a promise to protect the three realms and share what you have discovered. The crown of forgotten stars appears above you. Your legend begins: Guardian of the Realms.",ending:"Guardian of the Realms"},
+clue:{chapter:4,title:"The storyteller's ending",text:"You gather every clue and tell the story across all three kingdoms. The people unite to rebuild the lost alliance. Your legend begins: Keeper of Stories.",ending:"Keeper of Stories"}
+};
+function renderStory(nodeId){const n=storyNodes[nodeId];if(!n)return;document.getElementById("chapterNo").textContent=n.chapter;document.getElementById("storyTitle").textContent=n.title;document.getElementById("storyText").textContent=n.text;document.getElementById("storyFeedback").textContent=n.ending?"✧ Your ending: "+n.ending:"";document.getElementById("storyChoices").innerHTML="";n.choices.forEach(([label,next])=>{const b=document.createElement("button");b.className="choice";b.textContent=label;b.onclick=()=>chooseStory(nodeId,next);document.getElementById("storyChoices").appendChild(b)});if(n.ending){document.getElementById("storyChoices").innerHTML='<button class="btn" onclick="restartStory()">Play another route ↻</button>';state.ending=n.ending;award("story");award("ending")} }
+function chooseStory(from,to){state.storyPath.push({from,to});saveState();document.getElementById("storyLog").textContent=state.storyPath.map((x,i)=>(i+1)+". "+storyNodes[x.from].title+" → "+storyNodes[x.to].title).join("  |  ");renderStory(to)}
+function restartStory(){state.storyPath=[];state.ending=null;document.getElementById("storyLog").textContent="Your story has restarted. Choose a new path!";saveState();renderStory("start")}
+const prompts=[["Design a royal crest","Create a crest using three symbols that represent your character. Give each symbol a meaning."],["Invent a magical pet","Create a creature, name it, and decide what unusual talent it has."],["Plan a fantasy festival","What is it called? What do people wear, eat and celebrate?"],["Create a secret society","Invent its name, its symbol and one mysterious rule."],["Design a legendary object","What does it look like, who made it and what is its story?"],["Write a royal announcement","Announce a surprising event happening in your chosen kingdom."],["Make a character playlist","Choose three song moods that fit your character and explain why."],["Create a rival character","Give them a name, a goal and one reason they might become an ally."]];
+function showChallenge(){const p=prompts[state.challengeIndex%prompts.length];document.getElementById("challengeTitle").textContent=p[0];document.getElementById("challengeText").textContent=p[1];document.getElementById("challengeNumber").textContent="PROMPT "+(state.challengeIndex+1);renderProgress()}
+function newChallenge(){state.challengeIndex=(state.challengeIndex+1)%prompts.length;saveState();showChallenge()}
+function completeChallenge(){if(state.challengeDone.includes(state.challengeIndex)){toast("You've already completed this prompt!");return}state.challengeDone.push(state.challengeIndex);state.challenges++;award("challenge");saveState();showChallenge();toast("Challenge completed. Nice work! ✨")}
+const quiz=[
+{q:"What does LARP stand for?",a:["Live Action Role-Playing","Legendary Adventure Royal Party","Live And Read Poetry","Light Action Racing Practice"],c:0,why:"LARP means Live Action Role-Playing."},
+{q:"What is a character backstory?",a:["Their history and experiences","A costume colour","A map of the kingdom","The final score"],c:0,why:"A backstory explains where a character came from and what shaped them."},
+{q:"Which skill is useful in collaborative role-play?",a:["Listening and teamwork","Ignoring other players","Always choosing for everyone","Memorising every line"],c:0,why:"Role-play works best when people listen, collaborate and respect each other's ideas."},
+{q:"What makes a fantasy setting feel believable?",a:["Consistent details and rules","Only having a long name","Never explaining anything","Using the same character for everyone"],c:0,why:"Consistent world details help a fictional setting feel connected."},
+{q:"What should you check before joining an in-person LARP group?",a:["Age guidance, rules and safety arrangements","Whether you can ignore the organiser","Whether everyone has identical costumes","Whether the story has no rules"],c:0,why:"Check the group's age guidance, rules, supervision and safety arrangements."}
+];
+let qi=0,score=0,locked=false;
+function showQuestion(){const q=quiz[qi];locked=false;document.getElementById("quizCounter").textContent="Question "+(qi+1)+" of "+quiz.length;document.getElementById("quizPoints").textContent="Score: "+score;document.getElementById("quizBar").style.width=((qi+1)/quiz.length*100)+"%";document.getElementById("quizQuestion").textContent=q.q;document.getElementById("quizFeedback").textContent="Choose an answer.";document.getElementById("quizNext").disabled=true;document.getElementById("quizNext").textContent=qi===quiz.length-1?"See my result →":"Next question →";document.getElementById("quizResult").textContent="";const box=document.getElementById("quizOptions");box.innerHTML="";q.a.forEach((answer,i)=>{const b=document.createElement("button");b.className="quiz-answer";b.textContent=answer;b.onclick=()=>answerQuestion(i);box.appendChild(b)})}
+function answerQuestion(index){if(locked)return;locked=true;const q=quiz[qi],buttons=[...document.querySelectorAll(".quiz-answer")];buttons.forEach((b,i)=>{b.disabled=true;if(i===q.c)b.classList.add("correct");else if(i===index)b.classList.add("wrong")});if(index===q.c){score++;document.getElementById("quizFeedback").textContent="Correct! ✨ "+q.why}else{document.getElementById("quizFeedback").textContent="Not quite — "+q.why}document.getElementById("quizPoints").textContent="Score: "+score;document.getElementById("quizNext").disabled=false}
+function nextQuestion(){if(!locked)return;if(qi<quiz.length-1){qi++;showQuestion()}else{state.quizAttempts++;state.quizBest=Math.max(state.quizBest,score);if(score===quiz.length)award("quiz");saveState();document.getElementById("quizQuestion").textContent="You scored "+score+" out of "+quiz.length+"!";document.getElementById("quizOptions").innerHTML="";document.getElementById("quizFeedback").textContent=score===5?"PERFECT SCORE! You're a fantasy scholar.":"Nice try! Replay to beat your best score.";document.getElementById("quizNext").disabled=true;document.getElementById("quizNext").textContent="Quiz complete";document.getElementById("quizResult").textContent="Your best score is now "+state.quizBest+"/5. Use Start again to replay."}}
+function restartQuiz(){qi=0;score=0;showQuestion()}
+function openImage(img){document.getElementById("modalImage").src=img.src;document.getElementById("imageModal").style.display="flex"}function closeImage(){document.getElementById("imageModal").style.display="none"}
+function downloadProgress(){const blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="larping-is-key-progress.json";a.click();URL.revokeObjectURL(url);toast("Progress backup downloaded!")}
+function importProgress(event){const file=event.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const imported=JSON.parse(reader.result);if(!imported||typeof imported!=="object"||!Array.isArray(imported.badges))throw new Error("Invalid backup");state={...freshState(),...imported};saveState();restoreAll();toast("Your progress has been loaded!")}catch(e){toast("That file doesn't look like a valid progress backup.")}event.target.value=""};reader.readAsText(file)}
+function resetProgress(){if(!confirm("Reset all saved LARPING IS KEY progress on this browser? Download a backup first if you want to keep it."))return;state=freshState();saveState();restoreAll();restartStory();restartQuiz();showChallenge();document.getElementById("characterResult").style.display="none";document.querySelectorAll("#creator input,#creator textarea").forEach(x=>x.value="");toast("Progress reset. Fresh adventure!")}
+function restoreAll(){if(state.character){document.getElementById("cName").value=state.character.name||"";document.getElementById("cTitle").value=state.character.title||"";document.getElementById("cRole").value=state.character.role||"Royal strategist";document.getElementById("cRealm").value=state.character.realm||"Enchanted Forest";document.getElementById("cTrait").value=state.character.trait||"";document.getElementById("cPower").value=state.character.power||"";document.getElementById("cLore").value=state.character.lore||"";showCharacter()}renderProgress();showChallenge();if(state.storyPath.length){let current="start";state.storyPath.forEach(step=>{current=step.to});renderStory(current);document.getElementById("storyLog").textContent=state.storyPath.map((x,i)=>(i+1)+". "+storyNodes[x.from].title+" → "+storyNodes[x.to].title).join(" | ")}}
+restoreAll();renderStory("start");showQuestion();
+</script>
+</body>
+</html>
